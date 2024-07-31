@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.icon.min.css">
+    <link rel="stylesheet" href="assets/css/datatables.min.css">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white text-uppercase fw-bolder">
+                      INFORMACIÓN DEL DOCUMENTO
+                    </div>
+                    <div class="card-body">
+                        <form id="formInformacionDocumento">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="caja" class="form-label">Caja</label>
+                                    <select class="form-select form-control" id="caja" aria-label="Seleccionar caja">
+                                        <option value="1">Caja 1</option>
+                                        <option value="2">Caja 2</option>
+                                        <option value="3">Caja 3</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="tipo" class="form-label">Tipo Doc</label>
+                                    <select class="form-select form-control" id="tipoDocumento">
+                                        <option value="01">Factura</option>
+                                        <option value="02">Nota de crédito</option>
+                                        <option value="03">Nota de débito</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="vendedor" class="form-label">Vendedor</label>
+                                    <select class="form-select form-control" id="vendedor">
+                                        <option value="001">Vendedor 1</option>
+                                        <option value="002">Vendedor 2</option>
+                                        <option value="003">Vendedor 3</option>
+                                        <option value="004">Vendedor 4</option>
+                                        <option value="005">Vendedor 5</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="fecha" class="form-label">Fecha</label>
+                                    <input type="date" class="form-control" id="fecha">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="tipoIdentidad" class="form-label">Tipo Identidad</label>
+                                    <select class="form-select form-control" id="tipoIdentidad" aria-label="Seleccionar tipo identidad">
+                                        <option value="1">CONSUMIDOR FINAL</option>
+                                        <option value="2">CI/RUC</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="identidad" class="form-label">Identidad</label>
+                                    <input type="text" class="form-control" id="identidad" >
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="razonSocial" class="form-label">Razon social</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="razonSocial" placeholder="Razon social" >
+                                        <button class="btn btn-success" type="button" id="btnRazonSocial"><i class="bi bi-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="nombreComercial" class="form-label">Nombre comercial</label>
+                                    <input type="text" class="form-control" id="nombreComercial" >
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <input type="phone" class="form-control" id="telefono" >
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="celular" class="form-label">Celular</label>
+                                    <input type="phone" class="form-control" id="celular" >
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" >
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="ciudad" class="form-label">Ciudad</label>
+                                    <input type="text" class="form-control" id="ciudad" >
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="direccion" class="form-label">Dirección</label>
+                                    <input type="text" class="form-control" id="direccion" >
+                                </div>
+                            </div>
+                            
+
+                          </form>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-2">
+                <div class="card">
+                    <div class="card-header bg-primary text-white text-uppercase fw-bolder">
+                      DETALLE
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 mb-3 d-flex">
+                                <div class="p-2 flex-grow-1">
+                                   <!--  <label for="producto" class="form-label">Producto</label> -->
+                                    <select class="form-select form-control" id="producto" aria-label="Seleccionar producto">
+                                    </select>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success mx-1 mt-1" type="button" id="btnAddProducto"><i class="bi bi-cart-plus"></i> Add Producto</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table id="tableDetalle" class="display table table-striped" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Acc</th>
+                                        <th>Producto</th>
+                                        <th>Cod.</th>
+                                        <th>Cant.</th>
+                                        <th>Ud. M.</th>
+                                        <th>Tipo Precio</th>
+                                        <th>P.Unitarios</th>
+                                        <th>Desc.</th>
+                                        <th>IVA</th>
+                                        <th>Subtotal</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   
+                                    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="11">
+                                            <div class="d-flex justify-content-end">
+                                                <div class="mt-2">
+                                                    <input class="form-check-input checkIva mx-2" type="checkbox" value="">
+                                                </div>
+                                                <div class="px-2 mt-2">
+                                                    Desc. total
+                                                </div>
+                                                <div class="">
+                                                    <input type="number" id="descuentototal" class="form-control text-right" value="0.00" disabled>
+                                                </div>    
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-warning" type="button" id="btnNew"><i class="bi bi-arrow-clockwise"></i> Nuevo</button>
+                        <button class="btn btn-success" type="button" id="btnSave"><i class="bi bi-bag-check-fill"></i> Registrar</button>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/dataTables.min.js"></script>
+    <script src="assets/js/sweetalert2.js"></script>
+</body>
+</html>

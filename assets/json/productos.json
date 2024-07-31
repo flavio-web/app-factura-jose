@@ -1,0 +1,52 @@
+[
+    {
+        "codigo": "0000001",
+        "nombre": "SERVICIO DE TRANSPORTE",
+        "cantidad": 1,
+        "unidadMedida": "UNI",
+        "tipoPrecio": "GENERAL",
+        "precioUnitario": 100.50,
+        "descuento": 0.00,
+        "porcentajeIva": 0
+    },
+    {
+        "codigo": "0000002",
+        "nombre": "Gasolina Super",
+        "cantidad": 1,
+        "unidadMedida": "UNI",
+        "tipoPrecio": "GENERAL",
+        "precioUnitario": 5.60,
+        "descuento": 0.00,
+        "porcentajeIva": 15
+    },
+    {
+       "codigo": "0000003",
+        "nombre": "Gasolina ECO",
+        "cantidad": 1,
+        "unidadMedida": "UNI",
+        "tipoPrecio": "GENERAL",
+        "precioUnitario": 3.20,
+        "descuento": 0.00,
+        "porcentajeIva": 15
+    },
+    {
+       "codigo": "0000004",
+        "nombre": "SERVICIO DE LIMPIEZA",
+        "cantidad": 1,
+        "unidadMedida": "UNI",
+        "tipoPrecio": "GENERAL",
+        "precioUnitario": 50.00,
+        "descuento": 0.00,
+        "porcentajeIva": 0
+    },
+    {
+       "codigo": "0000005",
+        "nombre": "Galletas RICAS",
+        "cantidad": 1,
+        "unidadMedida": "CAJA",
+        "tipoPrecio": "GENERAL",
+        "precioUnitario": 2.50,
+        "descuento": 0.00,
+        "porcentajeIva": 15
+    }
+]
